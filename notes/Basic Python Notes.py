@@ -162,4 +162,51 @@ print(food[1:4])
 print(food[1:])
 print(food[:2])
 
+# Adding things to a list
+christmas_list = [] # ALWAYS USE SQUARE BRACKETS
+christmas_list.append("Tacos")
+christmas_list.append("Bumblebee")
+christmas_list.append("Red Dead Redemption 2")
+print(christmas_list)
+# Notice this is "object.method(Parameters)"
+
+# Removing things from a list
+christmas_list.remove("Tacos")
+print(christmas_list)
+
+'''
+1.Make a new list with 3 items
+2.Add a 4th item to the list
+3.Remove one of the first three items from the list
+'''
+
+# Also removing things from a list
+christmas_list.pop(0) # Removes the thing in the 0 index
+print(christmas_list)
+
+# Tuple
+brands = ("Apple", "Samsung", "HTC")    # notice the parentheses
+
+
+colors = ['Blue', 'Cyan', 'Teal', 'Red', 'Green', 'Orange', 'Purple',
+          'Pink', 'Black', 'Gold', 'Magenta', 'Brown', 'Turquoise', 'White', 'Gray', 'Yellow']
+print(len(colors))
+
+# Find the index
+print(colors.index("Gold"))
+
+# Changing things into a list
+string1 = "Turquoise"
+list1 = list(string1)
+print(list1)
+
+for character in list1:
+    if character == "u":
+        # Replace with a *
+        current_index = list1.index(character)
+        list1.pop(current_index)
+        list1.insert(current_index, "*")
+        
+# Changing lists into a string
+print("".join(list1))
 
