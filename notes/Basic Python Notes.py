@@ -128,3 +128,38 @@ print(5 == 3)
 a = 3 # A is set to 3
 a == 3 # Is A equal to 3?
 '''
+
+# Lists
+shopping_list = ["Whole Milk", "PC", "Eggs", "Trash (Xbox One)", "Other Trash(PS4)"]
+print(shopping_list)
+print(shopping_list[0])
+print("The second thing in the list is %s" % shopping_list[1])
+print("The length of the list is %d" % len(shopping_list))
+
+# Changing Elements in a list
+shopping_list[0] = "2% milk"
+print(shopping_list)
+print(shopping_list[0])
+
+# Looping through lists
+for item in shopping_list:
+    print(item)
+
+'''
+1.Make a list
+2.Change the third thing in the list
+3.Print the item
+4.Print the full list
+'''
+food = ["Eggs", "Cheese", "Pistachio", "Raspberries"]
+food[2] = "Apples"
+print("The last thing in the list is %s" % food[len(food) - 1])
+print(food)
+
+# Getting part of a list
+print(food[1:3])
+print(food[1:4])
+print(food[1:])
+print(food[:2])
+
+
