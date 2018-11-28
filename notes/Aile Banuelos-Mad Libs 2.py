@@ -1,35 +1,30 @@
-adjective1 = input("Enter an adjective + est: ")
-adjective2 = input("Enter an adjective: ")
+adjective_list = []
+adjective_list.append(input("Enter an adjective + est added at the end: "))
+adjective_list.append(input("Enter an adjective: "))
+adjective_list.append(input("Enter an emotion: "))
+adjective_list.append(input("Enter an Action: "))
+adjective_list.append(input("Enter an adjective: "))
+adjective_list.append(input("Enter an emotion: "))
+adjective_list.append(input("Enter a male name: "))
+adjective_list.append(input("Enter an adjective: "))
+adjective_list.append(input("Enter a noun: "))
+adjective_list.append(input("Enter a food place: "))
+adjective_list.append(input("Enter food: "))
 
+print("It was the %s house you could ever see." % adjective_list[0])
+print("This was the %s house in town." % adjective_list[1])
 
-print("It was the %s house you could ever see." % adjective1)
-print("This was the %s house in town." % adjective2)
+print("When people would enter this house they were so %s that they wanted," % adjective_list[2])
+print("to %s as soon as they got in." % adjective_list[3])
 
-emotion = input("Enter an emotion: ")
-action = input("Enter an Action: ")
+print("Although it was a %s house," % adjective_list[4])
+print("people still entered because they liked the %s of it." % adjective_list[5])
 
-print("When people would enter this house they were so %s that they wanted,"% emotion)
-print("to %s as soon as they got in." % action)
+print("A young boy named %s heard of this house." % adjective_list[6])
+print("He thought a place this %s would be worth seeing." % adjective_list[7])
 
-adjective3 = input("Enter an adjective: ")
-emotion2 = input("Enter an emotion: ")
+print("He went to this house and realized he liked %s" % adjective_list[8])
+print("Next to this house was a %s." % adjective_list[9])
 
-print("Although it was a %s house," % adjective3)
-print("people still entered because they liked the %s of it."% emotion2)
-
-malename1 = input("Enter a male name: ")
-adjective4 = input("Enter an adjective: ")
-
-print("A young boy named %s heard of this house." % malename1)
-print("He thought a place this %s would be worth seeing." % adjective4)
-
-noun1 = input("Enter a noun: ")
-foodplace = input("Enter a food place: ")
-
-print("He went to this house and realized he liked %s" % noun1)
-print("Next to this house was a %s." % foodplace)
-
-food = input("Enter food: ")
-
-print("He went to %s and had his favorite meal," % foodplace)
-print("the %s, and lived a happy life" % food)
+print("He went to %s and had his favorite meal," % adjective_list[10])
+print("the %s, and lived a happy life" % adjective_list[10])

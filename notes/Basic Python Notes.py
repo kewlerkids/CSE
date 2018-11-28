@@ -163,7 +163,7 @@ print(food[1:])
 print(food[:2])
 
 # Adding things to a list
-christmas_list = [] # ALWAYS USE SQUARE BRACKETS
+christmas_list = []   # ALWAYS USE SQUARE BRACKETS
 christmas_list.append("Tacos")
 christmas_list.append("Bumblebee")
 christmas_list.append("Red Dead Redemption 2")
