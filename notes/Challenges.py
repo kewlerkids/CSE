@@ -9,10 +9,10 @@ challenge1("Aile", "Banuelos")
 
 
 def challenge3(base, height):
-
-    challenge3("10", "5")
-
     print(base*height/2)
+
+
+challenge3(10, 5)
 
 
 def challenge4(number):
