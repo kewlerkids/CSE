@@ -35,13 +35,13 @@ challenge7(2)
 
 
 def challenge8(number):
-    if number >= 2000:
+    if number <= 2000:
         return "It is between 150 and 2000"
 
     elif number >= 150:
         return "It is between 150 and 2000"
 
-    elif number < 2000:
+    elif number > 2000:
         return "Not between given range"
 
     elif number < 150:
