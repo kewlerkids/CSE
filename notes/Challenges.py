@@ -1,3 +1,6 @@
+import random
+
+
 def challenge1(name1, name2):
     print("%s, %s" % (name2, name1))
 
@@ -6,6 +9,7 @@ challenge1("Aile", "Banuelos")
 
 
 def challenge3(base, height):
+
     challenge3("10", "5")
 
     print(base*height/2)
@@ -19,7 +23,8 @@ def challenge4(number):
     if number < 0:
         return "This number is negative"
 
-    number(input("Random number? "))
+
+print(challenge4(random.randint(-10, 10)))
 
 
 def challenge7(number):
@@ -30,6 +35,17 @@ challenge7(2)
 
 
 def challenge8(number):
-    if number 150 =< >=2000:
+    if number >= 2000:
         return "It is between 150 and 2000"
 
+    elif number >= 150:
+        return "It is between 150 and 2000"
+
+    elif number < 2000:
+        return "Not between given range"
+
+    elif number < 150:
+        return "Not between given range"
+
+
+print(challenge8(random.randint(0, 3000)))
