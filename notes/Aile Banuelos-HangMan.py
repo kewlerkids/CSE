@@ -8,25 +8,31 @@ guess_word = random.choice(word_bank)
 
 total_lives = 8
 print("You have %s turns to start with" % total_lives)
-print(list(string.ascii_letters))
-guessed_letters = []
+list(string.ascii_letters)
+guessed_letters = ['?', '!', ' ']
+blanks = list('_' * len(guess_word))
+list_of_letters_in_guess_word = list(guess_word)
+
+("".join(list_of_letters_in_guess_word))
+
+for i in range(len(guess_word)):
+    if guess_word[i] in guessed_letters:
+        blanks[i] = list_of_letters_in_guess_word[i]
 
 while total_lives > 0:
+    print("".join(blanks))
     players_guess = input("Letter?")
-
-    string1 = guess_word
-    list1 = list(string1)
-    print("".join(list1))
-    correct_letters = (list(string1))
-
-    blanks = '_' * len(guess_word)
-    print(blanks)
+    guessed_letters.append(players_guess)
+    print("".join(guessed_letters))
     for i in range(len(guess_word)):
-        if guess_word[i] in correct_letters:
-            blanks = blanks[:i] + guess_word[i] + blanks[i + 1:]
+        if guess_word[i] in guessed_letters:
+            blanks[i] = list_of_letters_in_guess_word[i]
 
-        else:
-            total_lives -= 1
+    if total_lives == 0:
+        print("You lost")
+
+    if players_guess not in guess_word:
+        total_lives -= 1
 
     print("You have %s lives left" % total_lives)
-
+    print(" ")
