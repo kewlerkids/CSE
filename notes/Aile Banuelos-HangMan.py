@@ -1,8 +1,8 @@
 import random
 import string
-word_bank = ["Vanilla Bean", "Chocolate", "Pistachio", "Strawberry", "Rocky Road!", "Mint Chocolate Chip",
-            "Coffee", "Cookies and Creme", "Do you like Ice cream?", "What is butter pecan?",
-             "Espresso Chocolate Cookie Crumble", "Sea Salt Caramel Truffle"]
+word_bank = ["vanilla bean", "chocolate", "pistachio", "strawberry", "rocky road!", "mint chocolate chip",
+            "coffee", "cookies and creme", "do you like ice cream?", "what is butter pecan?",
+             "espresso chocolate cookie crumble", "sea salt caramel truffle"]
 
 guess_word = random.choice(word_bank)
 
