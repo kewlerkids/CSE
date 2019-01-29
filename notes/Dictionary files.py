@@ -82,3 +82,4 @@ complex_dictionary = {
         ]
     }
 }
+print(complex_dictionary["RI"]["CITIES"][2])
