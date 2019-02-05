@@ -21,7 +21,16 @@ world_map = {
         'NAME': "Upper Mid",
         'DESCRIPTION': "There is a wall North and you have paths every other way.",
         'PATHS': {
-
+            'SOUTH': "R1B",
+            'EAST': "RBLD",
+            'WEST': "RCLA"
+        }
+    },
+    'RCLA': {
+        'NAME': "Close",
+        'DESCRIPTION': "It's a small corner you can go straight or back",
+        'PATHS': {
+            "EAST"
         }
     },
     'R34': {
@@ -33,11 +42,28 @@ world_map = {
             'EAST': "ALL",
         }
     },
+    'RBIDY': {
+        'NAME': "Balcony",
+        'DESCRIPTION': "",
+        'PATHS': {
+            'DOWN': "R34",
+
+        }
+    },
     'REST': {
         'NAME': "Bench",
         'DESCRIPTION': "This is just an old bench...",
         'PATHS': {
             'EAST': "R1B"
+        }
+    },
+    'RBLD': {
+        'NAME': "Boiler Room Door",
+        'DESCRIPTION': "You are next to a nice wooden door to your back but there is also a path right.",
+        'PATHS': {
+            'WEST': "R1C",
+            'EAST': "",
+            'SOUTH': ""
         }
     }
 }
