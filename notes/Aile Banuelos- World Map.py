@@ -17,6 +17,88 @@ world_map = {
             'SOUTH': "R1A"
         }
     },
+    'REST': {
+        'NAME': "Bench",
+        'DESCRIPTION': "This is just an old bench...",
+        'PATHS': {
+            'EAST': "R1B"
+        }
+    },
+    'R34': {
+        'NAME': "HayStack",
+        'DESCRIPTION': "You are near a balcony and you can go west or east.",
+        'PATHS': {
+            'UP': "RBIDY",
+            'WEST': "R1B",
+            'EAST': "ALL",
+        }
+    },
+    'ALL': {
+        'NAME': "Alley",
+        'DESCRIPTION': "There is a door in front of you.",
+        'PATHS': {
+            'NORTH': "STR",
+            'WEST': "R34"
+        }
+    },
+    'STR': {
+        'NAME': "Stairs",
+        'DESCRIPTION': "You can go up some stairs",
+        'PATHS': {
+            'UP': "",
+            'SOUTH': "ALL"
+        }
+    },
+    'RBIDY': {
+        'NAME': "Balcony",
+        'DESCRIPTION': "You are on a balcony you can jump into the haystacks or go through the window.",
+        'PATHS': {
+            'DOWN': "R34",
+            'NORTH': "RWN"
+        }
+    },
+    'RWN': {
+        'NAME': "West Bedroom",
+        'DESCRIPTION': "You are at the west end of a bedroom there "
+                       "is a drawer and a bed to the east and a door in front of you.",
+        'PATHS': {
+            'NORTH': "APT",
+            'EAST': "REN",
+            'SOUTH': "RBIDY"
+        }
+    },
+    'REN': {
+        'NAME': "East Bedroom",
+        'DESCRIPTION': "You are at the east end of the bedroom there is a drawer and bed.",
+        'PATHS': {
+           'WEST': "RWN"
+        }
+    },
+    'WAPT': {
+        'NAME': " West Apartments",
+        'DESCRIPTION': "There are so stairs going down and a hallway east.",
+        'PATHS': {
+            'EAST': "EAPT",
+            'DOWN': "BLR",
+            'SOUTH': "RWN"
+        }
+    },
+    'EAPT': {
+        'NAME': "East Apartments",
+        'DESCRIPTION': "",
+        'PATHS': {
+            'DOWN': "",
+            'WEST': "WAPT",
+        }
+    },
+    'BLR': {
+        'NAME': "Boiler Room",
+        'DESCRIPTION': "There's a boiler behind me and a door in front.",
+        'PATHS': {
+            'NORTH': "RBLD",
+            'UP': "WAPT"
+        }
+    },
     'R1C': {
         'NAME': "Upper Mid",
         'DESCRIPTION': "There is a wall North and you have paths every other way.",
@@ -30,31 +112,8 @@ world_map = {
         'NAME': "Close",
         'DESCRIPTION': "It's a small corner you can go straight or back",
         'PATHS': {
-            "EAST"
-        }
-    },
-    'R34': {
-        'NAME': "HayStack",
-        'DESCRIPTION': "You are near a balcony and you can go west or east.",
-        'PATHS': {
-            'UP': "RBIDY",
-            'WEST': "R1B",
-            'EAST': "ALL",
-        }
-    },
-    'RBIDY': {
-        'NAME': "Balcony",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'DOWN': "R34",
-
-        }
-    },
-    'REST': {
-        'NAME': "Bench",
-        'DESCRIPTION': "This is just an old bench...",
-        'PATHS': {
-            'EAST': "R1B"
+            'EAST': "R1C",
+            'WEST': "LARCH"
         }
     },
     'RBLD': {
@@ -65,7 +124,16 @@ world_map = {
             'EAST': "",
             'SOUTH': ""
         }
-    }
+    },
+    'LARCH': {
+        'NAME': "Lower Arch Side",
+        'DESCRIPTION': "You can go into a little corner or continue.",
+        'PATHS': {
+            'NORTH': "",
+            'SOUTH': "",
+            'EAST': "RCLA"
+        }
+    },
 }
 
 current_node = world_map['R1A']
