@@ -45,7 +45,7 @@ world_map = {
         'NAME': "Stairs",
         'DESCRIPTION': "You can go up some stairs",
         'PATHS': {
-            'UP': "",
+            'UP': "EAPT",
             'SOUTH': "ALL"
         }
     },
@@ -62,7 +62,7 @@ world_map = {
         'DESCRIPTION': "You are at the west end of a bedroom there "
                        "is a drawer and a bed to the east and a door in front of you.",
         'PATHS': {
-            'NORTH': "APT",
+            'NORTH': "WAPT",
             'EAST': "REN",
             'SOUTH': "RBIDY"
         }
@@ -76,7 +76,7 @@ world_map = {
     },
     'WAPT': {
         'NAME': " West Apartments",
-        'DESCRIPTION': "There are so stairs going down and a hallway east.",
+        'DESCRIPTION': "There are so stairs going down and a hallway east plus a door behind.",
         'PATHS': {
             'EAST': "EAPT",
             'DOWN': "BLR",
@@ -85,15 +85,40 @@ world_map = {
     },
     'EAPT': {
         'NAME': "East Apartments",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are next to a long hall and stairs.",
         'PATHS': {
-            'DOWN': "",
+            'DOWN': "STR",
             'WEST': "WAPT",
+            'NORTH': "HALL"
+        }
+    },
+    'HALL': {
+        'NAME': "Long Hall",
+        'DESCRIPTION': "You are in the middle of a narrow and dark hall.",
+        'PATHS': {
+            'NORTH': "DRO",
+            'SOUTH': "EAPT"
+        }
+    },
+    'DRO': {
+        'NAME': "Door to second balcony.",
+        'DESCRIPTION': "You are next to a white wooden door and the narrow hall.",
+        'PATHS': {
+            'NORTH': "BALL",
+            'SOUTH': "HALL"
+        }
+    },
+    'BALL': {
+        'NAME': "Second Balcony",
+        'DESCRIPTION': "You are at a very high place but you see a building below.",
+        'PATHS': {
+            'DOWN': "VROOM",
+            'SOUTH': "DRO",
         }
     },
     'BLR': {
         'NAME': "Boiler Room",
-        'DESCRIPTION': "There's a boiler behind me and a door in front.",
+        'DESCRIPTION': "There's a boiler behind me and a door in front plus some stairs.",
         'PATHS': {
             'NORTH': "RBLD",
             'UP': "WAPT"
@@ -121,17 +146,74 @@ world_map = {
         'DESCRIPTION': "You are next to a nice wooden door to your back but there is also a path right.",
         'PATHS': {
             'WEST': "R1C",
-            'EAST': "",
-            'SOUTH': ""
+            'EAST': "PAT",
+            'SOUTH': "BLR"
         }
+    },
+    'VROOM': {
+        'NAME': "Hay Wagon",
+        'DESCRIPTION': "You are on a soft wagon of hay you can jump onto a balcony or get down...",
+        'PATHS': {
+            'UP': "BALL",
+            'DOWN': "TS"
+        }
+    },
+    'TS': {
+        'NAME': "Truck Side",
+        'DESCRIPTION': "You are next to a wagon and a building.",
+        'PATHS': {
+            'UP': "VROOM",
+            'NORTH': "",
+            'SOUTH': "PAT"
+        }
+    },
+    'PAT': {
+        'NAME': "Patio",
+        'DESCRIPTION': "You are underneath a patio that has sacks on the floor...",
+        'PATHS': {
+            'NORTH': "TS",
+            'WEST': "RBLD"
+        }
+
     },
     'LARCH': {
         'NAME': "Lower Arch Side",
         'DESCRIPTION': "You can go into a little corner or continue.",
         'PATHS': {
-            'NORTH': "",
-            'SOUTH': "",
+            'NORTH': "UARCH",
+            'SOUTH': "CUB",
             'EAST': "RCLA"
+        }
+    },
+    'CUB': {
+        'NAME': "CUBBY",
+        'DESCRIPTION': "You are in a small corner with a little wooden box...",
+        'PATHS': {
+            'NORTH': "LARCH"
+        }
+    },
+    'UARCH': {
+        'NAME': "Upper Arch Side",
+        'DESCRIPTION': "You see a door in front of you and a building to your east.",
+        'PATHS': {
+            'NORTH': "LDR",
+            'SOUTH': "LARCH",
+            'EAST': ""
+        }
+    },
+    'LDR': {
+        'NAME': "Library",
+        'DESCRIPTION': "It smells like fresh paper and there are shelves of books and a small hall west. ",
+        'PATHS': {
+            'SOUTH': "UARCH",
+            'WEST': "KIT",
+        }
+    },
+    'KIT': {
+        'NAME': "Kitchen",
+        'DESCRIPTION': "There is a kitchen here with pots pans and cabinets.",
+        'PATHS': {
+            'EAST': "LDR"
         }
     },
 }
@@ -143,6 +225,7 @@ playing = True
 while playing:
     print(current_node["NAME"])
     print(current_node["DESCRIPTION"])
+    print("")
     command = input(">_")
     if command.lower() in ['q', 'quit', 'exit']:
         playing = False
@@ -151,6 +234,6 @@ while playing:
             room_name = current_node['PATHS'][command.upper()]
             current_node = world_map[room_name]
         except KeyError:
-            print("I can't go that way.")
+            print("**I can't go that way.**")
     else:
         print("Command Not Recognized")
