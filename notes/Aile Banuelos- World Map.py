@@ -163,8 +163,9 @@ world_map = {
         'DESCRIPTION': "You are next to a wagon and a building.",
         'PATHS': {
             'UP': "VROOM",
-            'NORTH': "",
-            'SOUTH': "PAT"
+            'NORTH': "FGR",
+            'SOUTH': "PAT",
+            'WEST': "BOOT"
         }
     },
     'PAT': {
@@ -198,7 +199,7 @@ world_map = {
         'PATHS': {
             'NORTH': "LDR",
             'SOUTH': "LARCH",
-            'EAST': ""
+            'EAST': "MCRH"
         }
     },
     'LDR': {
@@ -214,6 +215,92 @@ world_map = {
         'DESCRIPTION': "There is a kitchen here with pots pans and cabinets.",
         'PATHS': {
             'EAST': "LDR"
+        }
+    },
+    'MCRH': {
+        'NAME': "Moto Near Arch",
+        'DESCRIPTION': "You are near a small corner to your north and a building east.",
+        'PATHS': {
+            'WEST': "UARCH",
+            'EAST': "OFF",
+            'NORTH': "MOT"
+        }
+    },
+    'MOT': {
+        'NAME': "Moto",
+        'DESCRIPTION': "You are in a small corner and there is a plain cardboard box.",
+        'PATHS': {
+            'SOUTH': "MCRH"
+        }
+    },
+    'OFF': {
+        'NAME': "Off A Site",
+        'DESCRIPTION': "There is a wall North but directions every way.",
+        'PATHS': {
+            'WEST': "MCRH",
+            'EAST': "FGR",
+            'SOUTH': "AST"
+        }
+    },
+    'FGR': {
+        'NAME': "Front of GraveYard",
+        'DESCRIPTION': "There is a graveyard north a slope east and a building west.",
+        'PATHS': {
+            'NORTH': "GRR",
+            'SOUTH': "TS",
+            'WEST': "OFF",
+            'EAST': "PT"
+        }
+    },
+    'GRR': {
+        'NAME': "GraveYard",
+        'DESCRIPTION': "There are graves around you and one seems to be dug up already...",
+        'PATHS': {
+            'SOUTH': "FGR"
+        }
+    },
+    'AST': {
+        'NAME': "A Site",
+        'DESCRIPTION': "You can go to the back or east.",
+        'PATHS': {
+            'SOUTH': "DEF",
+            'NORTH': "OFF",
+            'EAST': "BACK",
+        }
+    },
+    'PT': {
+        'NAME': "Pit",
+        'DESCRIPTION': "",
+        'PATHS': {
+            'NORTH': "NPT"
+        }
+    },
+    'BOOT': {
+        'NAME': "Boost",
+        'DESCRIPTION': "",
+        'PATHS': {
+
+        }
+    },
+    'BACK': {
+        'NAME': "Back A Site",
+        'DESCRIPTION': "",
+        'PATHS': {
+
+        }
+    },
+    'DEF': {
+        'NAME': "Default Box",
+        'DESCRIPTION': "",
+        'PATHS': {
+
+        }
+    },
+    'NPT': {
+        'NAME': "North of Pit",
+        'DESCRIPTION': "",
+        'PATHS': {
+
         }
     },
 }
