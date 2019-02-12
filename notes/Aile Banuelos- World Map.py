@@ -272,7 +272,8 @@ world_map = {
         'NAME': "Pit",
         'DESCRIPTION': "",
         'PATHS': {
-            'NORTH': "NPT"
+            'NORTH': "NPT",
+            'WEST': "FGR"
         }
     },
     'BOOT': {
