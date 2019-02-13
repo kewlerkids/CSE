@@ -278,30 +278,43 @@ world_map = {
     },
     'BOOT': {
         'NAME': "Boost",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are on a wooden box that seems very fragile and are under a patio.",
         'PATHS': {
-
+            'NORTH': "DEF",
+            'WEST': "PILL"
         }
     },
     'BACK': {
         'NAME': "Back A Site",
         'DESCRIPTION': "",
         'PATHS': {
-
+            'NORTH': "AST",
+            'EAST': "PILL"
         }
     },
     'DEF': {
         'NAME': "Default Box",
         'DESCRIPTION': "",
         'PATHS': {
-
+            'EAST': "TS",
+            'WEST': "AST",
+            'NORTH': "FGR",
+            'SOUTH': "BOOT"
         }
     },
     'NPT': {
         'NAME': "North of Pit",
         'DESCRIPTION': "",
         'PATHS': {
-
+            'SOUTH': "PT"
+        }
+    },
+    'PILL': {
+        'NAME': "Pillar",
+        'DESCRIPTION': "",
+        'PATHS': {
+            'WEST': "BACK",
+            'EAST': "BOOT"
         }
     },
 }

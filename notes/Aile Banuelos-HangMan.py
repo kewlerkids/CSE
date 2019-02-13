@@ -4,6 +4,7 @@ word_bank = ["vanilla bean", "chocolate", "pistachio", "strawberry", "rocky road
             "coffee", "cookies and creme", "do you like ice cream?", "what is butter pecan?",
              "espresso chocolate cookie crumble", "sea salt caramel truffle"]
 
+
 guess_word = random.choice(word_bank)
 
 total_lives = 8
@@ -23,7 +24,7 @@ while total_lives > 0:
     print("".join(blanks))
     players_guess = input("Letter?")
     guessed_letters.append(players_guess)
-    print("".join(guessed_letters))
+    print("".join(guessed_letters[2:]))
     for i in range(len(guess_word)):
         if guess_word[i] in guessed_letters:
             blanks[i] = list_of_letters_in_guess_word[i]
