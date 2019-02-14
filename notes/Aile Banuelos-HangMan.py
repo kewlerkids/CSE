@@ -22,16 +22,16 @@ for i in range(len(guess_word)):
 
 while total_lives > 0:
     print("".join(blanks))
-    players_guess = input("Letter?")
+    players_guess = input("Letter?").lower()
     guessed_letters.append(players_guess)
     print("".join(guessed_letters[2:]))
     for i in range(len(guess_word)):
-        if guess_word[i] in guessed_letters:
+        if guess_word[i].lower() in guessed_letters:
             blanks[i] = list_of_letters_in_guess_word[i]
 
     if total_lives == 0:
         print("You lost")
-
+        
     if players_guess not in guess_word:
         total_lives -= 1
 
