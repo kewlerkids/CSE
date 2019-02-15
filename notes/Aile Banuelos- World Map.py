@@ -270,7 +270,7 @@ world_map = {
     },
     'PT': {
         'NAME': "Pit",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are near an enclosed area and a building.",
         'PATHS': {
             'NORTH': "NPT",
             'WEST': "FGR"
@@ -286,7 +286,7 @@ world_map = {
     },
     'BACK': {
         'NAME': "Back A Site",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are in a corner at the back of the site.",
         'PATHS': {
             'NORTH': "AST",
             'EAST': "PILL"
@@ -294,7 +294,7 @@ world_map = {
     },
     'DEF': {
         'NAME': "Default Box",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are next to large boxes you can go multiple ways",
         'PATHS': {
             'EAST': "TS",
             'WEST': "AST",
@@ -304,14 +304,14 @@ world_map = {
     },
     'NPT': {
         'NAME': "North of Pit",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are in an enclosed area that looks very sneaky",
         'PATHS': {
             'SOUTH': "PT"
         }
     },
     'PILL': {
         'NAME': "Pillar",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "You are hidden behind a pillar you can go east or west",
         'PATHS': {
             'WEST': "BACK",
             'EAST': "BOOT"
