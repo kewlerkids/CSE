@@ -13,6 +13,7 @@ list(string.ascii_letters)
 guessed_letters = ['?', '!', ' ']
 blanks = list('_' * len(guess_word))
 list_of_letters_in_guess_word = list(guess_word)
+win = False
 
 ("".join(list_of_letters_in_guess_word))
 
@@ -20,9 +21,7 @@ for i in range(len(guess_word)):
     if guess_word[i] in guessed_letters:
         blanks[i] = list_of_letters_in_guess_word[i]
 
-
-while total_lives == 0:
-
+while total_lives > 0 and not win:
     print("".join(blanks))
     players_guess = input("Letter?").lower()
     guessed_letters.append(players_guess)
@@ -31,17 +30,12 @@ while total_lives == 0:
         if guess_word[i].lower() in guessed_letters:
             blanks[i] = list_of_letters_in_guess_word[i]
 
-    if '_' in guess_word:
-        you_win = False
-
-    else '_' not in guess_word:
-        you_win = True
-
-    if you_win = True:
-        break
-
     if players_guess not in guess_word:
         total_lives -= 1
+
+    if '_' not in blanks:
+        print("You win!!")
+        win = True
 
     print("You have %s lives left" % total_lives)
     print(" ")

@@ -179,7 +179,7 @@ world_map = {
     },
     'LARCH': {
         'NAME': "Lower Arch Side",
-        'DESCRIPTION': "You can go into a little corner or continue.",
+        'DESCRIPTION': "You can go into a little corner south or continue.",
         'PATHS': {
             'NORTH': "UARCH",
             'SOUTH': "CUB",
@@ -261,11 +261,11 @@ world_map = {
     },
     'AST': {
         'NAME': "A Site",
-        'DESCRIPTION': "You can go to the back or east.",
+        'DESCRIPTION': "You can go to the back or east. You are near a patio.",
         'PATHS': {
-            'SOUTH': "DEF",
+            'SOUTH': "BACK",
             'NORTH': "OFF",
-            'EAST': "BACK",
+            'EAST': "DEF",
         }
     },
     'PT': {
