@@ -53,25 +53,36 @@ BLR = Room('Boiler Room', "RBLD", None, None, None,
 R1C = Room('Upper Mid', None, "RBLD", "R1B", "RCLA",
            "There is a wall North and you have paths every other way.", None, None)
 RCLA = Room('Close', None, "R1C", None, "LARCH", "It's a small corner you can go straight or back.", None, None)
-RBLD = Room('', None, None, None, None, "", None, None)
-VROOM = Room('', None, None, None, None, "", None, None)
-TS = Room('', None, None, None, None, "", None, None)
-PAT = Room('', None, None, None, None, "", None, None)
-LARCH = Room('', None, None, None, None, "", None, None)
-CUB = Room('', None, None, None, None, "", None, None)
-UARCH = Room('', None, None, None, None, "", None, None)
-LDR = Room('', None, None, None, None, "", None, None)
-KIT = Room('', None, None, None, None, "", None, None)
-MCRH = Room('', None, None, None, None, "", None, None)
-MOT = Room('', None, None, None, None, "", None, None)
-OFF = Room('', None, None, None, None, "", None, None)
-FGR = Room('', None, None, None, None, "", None, None)
-GRR = Room('', None, None, None, None, "", None, None)
-AST = Room('', None, None, None, None, "", None, None)
-PT = Room('', None, None, None, None, "", None, None)
-BOOT = Room('', None, None, None, None, "", None, None)
-BACK = Room('', None, None, None, None, "", None, None)
-DEF = Room('', None, None, None, None, "", None, None)
-NPT = Room('', None, None, None, None, "", None, None)
-PILL = Room('', None, None, None, None, "", None, None)
+RBLD = Room('Boiler Room Door', None, "PAT", "BLR", "R1C",
+            "You are next to a nice wooden door to your back but there is also a path right.", None, None)
+VROOM = Room('Hay Wagon', None, None, None, None,
+             "You are on a soft wagon of hay you can jump onto a balcony or get down...", "BALL", "TS")
+TS = Room('Truck Side', "FGR", None, "PAT", "BOOT", "You are next to a wagon and a building.", "VROOM", None)
+PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks on the floor...", None, None)
+LARCH = Room('Lower Arch Side', "UARCH", "RCLA", "CUB", None,
+             "You can go into a little corner south or continue.", None, None)
+CUB = Room('Cubby', "LARCH", None, None, None, "You are in a small corner with a little wooden box...", None, None)
+UARCH = Room('Upper Arch Side', "LDR", "MCRH", "LARCH", None,
+             "You see a door in front of you and a building to your east.", None, None)
+LDR = Room('Library', None, None, "UARCH", "KIT",
+           "It smells like fresh paper and there are shelves of books and a small hall west.", None, None)
+KIT = Room('Kitchen', None, "LDR", None, None, "There is a kitchen here with pots pans and cabinets.", None, None)
+MCRH = Room('Moto Near Arch', "MOT", "OFF", None, "UARCH",
+            "You are near a small corner to your north and a building east.", None, None)
+MOT = Room('Moto', None, None, "MCRH", None, "You are in a small corner and there is a plain cardboard box.",
+           None, None)
+OFF = Room('Off A Site', None, "FGR", "AST", "MCRH", "There is a wall North but directions every way.", None, None)
+FGR = Room('Front of Graveyard', "GRR", "PT", "TS", "OFF",
+           "There is a graveyard north a slope east and a building west.", None, None)
+GRR = Room('Graveyard', None, None, "FGR", None,
+           "There are graves around you and one seems to be dug up already...", None, None)
+AST = Room('A site', "OFF", "DEF", "BACK", None, "You can go to the back or east. You are near a patio.", None, None)
+PT = Room('Pit', "NPT", None, None, "FGR", "You are near an enclosed area and a building.", None, None)
+BOOT = Room('Boost', "DEF", None, None, "PILL",
+            "You are on a wooden box that seems very fragile and are under a patio.", None, None)
+BACK = Room('Back A site', "AST", "PILL", None, None, "You are in a corner at the back of the site.", None, None)
+DEF = Room('Default box', "FGR", "TS", "BOOT", "AST", "You are next to large boxes you can go multiple ways.",
+           None, None)
+NPT = Room('North of Pit', None, None, "PT", None, "You are in an enclosed area that looks very sneaky.", None, None)
+PILL = Room('Pillar', None, "BOOT", None, "BACK", "You are hidden behind a pillar you can go east or west.", None, None)
 

@@ -187,7 +187,7 @@ world_map = {
         }
     },
     'CUB': {
-        'NAME': "CUBBY",
+        'NAME': "Cubby",
         'DESCRIPTION': "You are in a small corner with a little wooden box...",
         'PATHS': {
             'NORTH': "LARCH"
