@@ -10,21 +10,26 @@ class Room(object):
         self.down = down
 
 
-# Option 1
-# Add dependent rooms after
-R19A = Room("R19A")
-parking_lot = Room('The parking Lot', None, R19A)
+class Player(object):
+    def __init__(self, starting_location):
+        self.health = 100
+        self.current_location = starting_location
+        self.inventory = []
+        self.damage = 10
 
-R19A.north = parking_lot
+    def move(self, new_location):
+        """ This method moves a character to a new location
 
-# Option 2
-# Put them in quotes
-R19A = Room("R19A", "parking_lot")
-parking_lot = Room('The parking Lot', None, R19A)
+        :param new_location: The variable containing a room object
+        :return:
+        """
+        self.current_location = new_location
+
 
 # "R1A", "R1B", "REST", "R34", "ALL", "STR", "RBIDY", "RWN", "REN", "WAPT", "EAPT", "HALL", "DRO",
 # "BALL", "BLR", "R1C", "RCLA", "RBLD", "VROOM", "TS", "PAT", "LARCH", "CUB", "UARCH", "LDR", "KIT", "MCRH",
 # "MOT", "OFF", "FGR", "GRR", "AST", "PT", "BOOT", "BACK", "DEF", "NPT", "PILL"
+
 
 R1A = Room('Lower Mid', "R1B", None, None, None, "You are at a narrow path and all you can do is go forward.",
            None, None)
@@ -86,3 +91,42 @@ DEF = Room('Default box', "FGR", "TS", "BOOT", "AST", "You are next to large box
 NPT = Room('North of Pit', None, None, "PT", None, "You are in an enclosed area that looks very sneaky.", None, None)
 PILL = Room('Pillar', None, "BOOT", None, "BACK", "You are hidden behind a pillar you can go east or west.", None, None)
 
+# Player
+player = Player(R1A)
+
+playing = True
+directions = ['north', 'south', 'east', 'west', 'up', 'down']
+
+
+# Controller
+while playing:
+    print(player.current_location.name)
+    print(player.current_location.description)
+    command = input(">_")
+    if command.lower() in ['q', 'quit', 'exit']:
+        playing = False
+    elif command.lower()in directions:
+        try:
+            room_object = getattr(player.current_location, command)
+
+            # NEEDED FOR OPTION 2
+            room_var = globals()[room_object]
+
+            player.move(room_object)
+        except KeyError:
+            print("**I can't go that way.**")
+    else:
+        print("Command Not Recognized")
+
+
+# Option 1
+# Add dependent rooms after
+# R19A = Room("R19A")
+# parking_lot = Room('The parking Lot', None, R19A)
+
+# R19A.north = parking_lot
+
+# Option 2
+# Put them in quotes
+# R19A = Room("R19A", "parking_lot")
+# parking_lot = Room('The parking Lot', None, R19A)
