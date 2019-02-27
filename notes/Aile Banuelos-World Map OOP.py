@@ -26,9 +26,10 @@ class Player(object):
         self.current_location = new_location
 
 
-# "R1A", "R1B", "REST", "R34", "ALL", "STR", "RBIDY", "RWN", "REN", "WAPT", "EAPT", "HALL", "DRO",
-# "BALL", "BLR", "R1C", "RCLA", "RBLD", "VROOM", "TS", "PAT", "LARCH", "CUB", "UARCH", "LDR", "KIT", "MCRH",
-# "MOT", "OFF", "FGR", "GRR", "AST", "PT", "BOOT", "BACK", "DEF", "NPT", "PILL"
+class Terrorist(object):
+    def __init__(self):
+        self.health = 10
+        self.damage = 10
 
 
 R1A = Room('Lower Mid', "R1B", None, None, None, "You are at a narrow path and all you can do is go forward.",
@@ -107,13 +108,13 @@ while playing:
         playing = False
     elif command.lower()in directions:
         try:
-            room_object = getattr(player.current_location, command)
-
-            # NEEDED FOR OPTION 2
-            room_var = globals()[room_object]
+            room_name = getattr(player.current_location, command)
+            room_object = globals()[room_name]
 
             player.move(room_object)
         except KeyError:
+            print("**I can't go that way.**")
+        except AttributeError:
             print("**I can't go that way.**")
     else:
         print("Command Not Recognized")
