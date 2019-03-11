@@ -61,8 +61,8 @@ R1C = Room('Upper Mid', None, "RBLD", "R1B", "RCLA",
 RCLA = Room('Close', None, "R1C", None, "LARCH", "It's a small corner you can go straight or back.", None, None)
 RBLD = Room('Boiler Room Door', None, "PAT", "BLR", "R1C",
             "You are next to a nice wooden door to your back but there is also a path right.", None, None)
-VROOM = Room('Hay Wagon', None, None, None, None,
-             "You are on a soft wagon of hay you can jump onto a balcony or get down...", "BALL", "TS")
+VROOM = Room('Hay Truck', None, None, None, None,
+             "You are on a soft truck of hay you can jump onto a balcony or get down...", "BALL", "TS")
 TS = Room('Truck Side', "FGR", None, "PAT", "BOOT", "You are next to a wagon and a building.", "VROOM", None)
 PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks on the floor...", None, None)
 LARCH = Room('Lower Arch Side', "UARCH", "RCLA", "CUB", None,

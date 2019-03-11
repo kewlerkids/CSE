@@ -1,6 +1,3 @@
-# Engine, hull, key, wrench, wheel, baseball bat, book, apple, paint, gas.
-
-
 class Items(object):
     def __init__(self, location, name):
         self.location = location
@@ -29,6 +26,22 @@ class BlackBerry(Fruit):
         super(BlackBerry, self).__init__("PAT", "Black Berry", "Black", "Seedy")
 
 
+class Liquids(Items):
+    def __init__(self, location, name):
+        super(Liquids, self).__init__(location, name)
+        self.amount = 20
+
+
+class Gas(Liquids):
+    def __init__(self):
+        super(Gas, self).__init__("KIT", "Gasoline")
+
+
+class Paint(Liquids):
+    def __init__(self):
+        super(Paint, self).__init__("BOOT", "Bucket of paint")
+
+
 class Tools(Items):
     def __init__(self, location, name, type_of):
         super(Tools, self).__init__(location, name)
@@ -45,6 +58,11 @@ class Screw(Tools):
         super(Screw, self).__init__("MOT", "Screw Driver", "Small")
 
 
+class Wrench(Tools):
+    def __init__(self):
+        super(Wrench, self).__init__("PIT", "Wrench", "Small")
+
+
 class Utensil(Items):
     def __init__(self, location, name, type_of):
         super(Utensil, self).__init__(location, name)
@@ -54,6 +72,31 @@ class Utensil(Items):
 class Spoon(Utensil):
     def __init__(self):
         super(Spoon, self).__init__("KIT", "Spoon", "Rusty")
+
+
+class Key(Utensil):
+    def __init__(self):
+        super(Key, self).__init__("LBD", "Key", "Car Key")
+
+
+class CarParts(Items):
+    def __init__(self, location, name):
+        super(CarParts, self).__init__(location, name)
+
+
+class Engine(CarParts):
+    def __init__(self):
+        super(Engine, self).__init__("HALL", "Engine")
+
+
+class Hull(CarParts):
+    def __init__(self):
+        super(Hull, self).__init__("R34", "Hull")
+
+
+class Wheel(CarParts):
+    def __init__(self):
+        super(Wheel, self).__init__("Vroom", "Wheel")
 
 
 class Vehicle(object):
