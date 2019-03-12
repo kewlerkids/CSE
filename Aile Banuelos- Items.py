@@ -48,6 +48,16 @@ class Tools(Items):
         self.type = type_of
 
 
+class BaseballBat(Tools):
+    def __init__(self):
+        super(BaseballBat, self).__init__("LBD", "Baseball Bat", "Wooden")
+
+
+class Baseball(Tools):
+    def __init__(self):
+        super(Baseball, self).__init__("BACK", "Baseball", "White")
+
+
 class Hammer(Tools):
     def __init__(self):
         super(Hammer, self).__init__("CUB", "Hammer", "Thick")
@@ -76,7 +86,7 @@ class Spoon(Utensil):
 
 class Key(Utensil):
     def __init__(self):
-        super(Key, self).__init__("LBD", "Key", "Car Key")
+        super(Key, self).__init__("Rest", "Key", "Car Key")
 
 
 class CarParts(Items):
