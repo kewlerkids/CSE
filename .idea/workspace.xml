@@ -16,7 +16,7 @@
     <SUITE FILE_PATH="coverage/CSE$Aile_Banuelos__Dictionary_World_map.coverage" NAME="Aile Banuelos- Dictionary World map Coverage Results" MODIFIED="1549041711492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Basic_Python_Notes.coverage" NAME="Basic Python Notes Coverage Results" MODIFIED="1547227932106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Object_Notes.coverage" NAME="Object Notes Coverage Results" MODIFIED="1550075602557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CSE$Aile_Banuelos__Items.coverage" NAME="Aile Banuelos- Items Coverage Results" MODIFIED="1552062945634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSE$Aile_Banuelos__Items.coverage" NAME="Aile Banuelos- Items Coverage Results" MODIFIED="1552491727648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$World_Map_OOP.coverage" NAME="World Map OOP Coverage Results" MODIFIED="1551371558144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Inheritance.coverage" NAME="Inheritance Coverage Results" MODIFIED="1551975072078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Semester_2_notes.coverage" NAME="Semester 2 notes Coverage Results" MODIFIED="1546965783692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
@@ -40,7 +40,7 @@
     <session id="491661940">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.121" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.36" value="1" />
@@ -48,7 +48,7 @@
           <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.42" value="2" />
-          <entry key="project.open.time.43" value="2" />
+          <entry key="project.open.time.43" value="3" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.48" value="4" />
@@ -70,7 +70,7 @@
           <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.85" value="1" />
           <entry key="project.open.time.98" value="1" />
-          <entry key="project.opened" value="42" />
+          <entry key="project.opened" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,27 +85,42 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="40" />
-          <entry key="py" value="21674" />
+          <entry key="dummy" value="41" />
+          <entry key="py" value="22614" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="40" />
-          <entry key="Python" value="21674" />
+          <entry key="PLAIN_TEXT" value="41" />
+          <entry key="Python" value="22614" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notes/Aile Banuelos-World Map OOP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1795">
-              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="-190">
+              <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
               <folding>
-                <marker date="1552318558165" expanded="true" signature="19:346" ph="..." />
+                <marker date="1552491727554" expanded="true" signature="19:348" ph="..." />
+                <marker date="1552491727554" expanded="true" signature="2270:2272" ph="..." />
+                <marker date="1552491727554" expanded="true" signature="3699:3700" ph="..." />
+                <marker date="1552491727554" expanded="true" signature="4679:4681" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Aile Banuelos- Items.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+              <folding>
+                <marker date="1552404784863" expanded="true" signature="1335:1430" ph="..." />
               </folding>
             </state>
           </provider>
@@ -120,18 +135,6 @@
                 <marker date="1551461344233" expanded="true" signature="22:27" ph="..." />
                 <marker date="1551461344233" expanded="true" signature="141:146" ph="..." />
                 <marker date="1551461344233" expanded="true" signature="721:783" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Aile Banuelos- Items.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="57" column="65" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
-              <folding>
-                <marker date="1552404784863" expanded="true" signature="1335:1430" ph="..." />
               </folding>
             </state>
           </provider>
@@ -172,8 +175,8 @@
         <option value="$PROJECT_DIR$/notes/Aile Banuelos- World Map.py" />
         <option value="$PROJECT_DIR$/notes/World Map OOP.py" />
         <option value="$PROJECT_DIR$/Inheritance.py" />
-        <option value="$PROJECT_DIR$/notes/Aile Banuelos-World Map OOP.py" />
         <option value="$PROJECT_DIR$/Aile Banuelos- Items.py" />
+        <option value="$PROJECT_DIR$/notes/Aile Banuelos-World Map OOP.py" />
       </list>
     </option>
   </component>
@@ -380,12 +383,12 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19440243" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19742814" />
       <window_info id="Structure" order="1" weight="0.24962178" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.74597365" visible="true" weight="0.3622951" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.74597365" visible="true" weight="0.21639344" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -553,22 +556,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes/Aile Banuelos-World Map OOP.py">
+    <entry file="file://$PROJECT_DIR$/Aile Banuelos- Items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1795">
-          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+        <state relative-caret-position="1224">
+          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
           <folding>
-            <marker date="1552318558165" expanded="true" signature="19:346" ph="..." />
+            <marker date="1552404784863" expanded="true" signature="1335:1430" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Aile Banuelos- Items.py">
+    <entry file="file://$PROJECT_DIR$/notes/Aile Banuelos-World Map OOP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="57" column="65" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
+        <state relative-caret-position="-190">
+          <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
           <folding>
-            <marker date="1552404784863" expanded="true" signature="1335:1430" ph="..." />
+            <marker date="1552491727554" expanded="true" signature="19:348" ph="..." />
+            <marker date="1552491727554" expanded="true" signature="2270:2272" ph="..." />
+            <marker date="1552491727554" expanded="true" signature="3699:3700" ph="..." />
+            <marker date="1552491727554" expanded="true" signature="4679:4681" ph="..." />
           </folding>
         </state>
       </provider>

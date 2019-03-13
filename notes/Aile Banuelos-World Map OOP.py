@@ -10,6 +10,176 @@ class Room(object):
         self.down = down
 
 
+class Items(object):
+    def __init__(self, name):
+        self.name = name
+
+
+class Fruit(Items):
+    def __init__(self, name, color, type_of):
+        super(Fruit, self).__init__(name)
+        self.color = color
+        self.type = type_of
+
+
+class Apple(Fruit):
+    def __init__(self):
+        super(Apple, self).__init__("Apple", "Red", "Special Seedless")
+
+
+class Banana(Fruit):
+    def __init__(self):
+        super(Banana, self).__init__("Banana", "Yellow", "Ripe")
+
+
+class BlackBerry(Fruit):
+    def __init__(self):
+        super(BlackBerry, self).__init__("Black Berry", "Black", "Seedy")
+
+
+class Liquids(Items):
+    def __init__(self, name):
+        super(Liquids, self).__init__(name)
+        self.amount = 20
+
+
+class Gas(Liquids):
+    def __init__(self):
+        super(Gas, self).__init__("Gasoline")
+
+
+class Paint(Liquids):
+    def __init__(self):
+        super(Paint, self).__init__("Bucket of paint")
+
+
+class Tools(Items):
+    def __init__(self, name, type_of):
+        super(Tools, self).__init__(name)
+        self.type = type_of
+
+
+class BaseballBat(Tools):
+    def __init__(self):
+        super(BaseballBat, self).__init__("Baseball Bat", "Wooden")
+
+
+class Baseball(Tools):
+    def __init__(self):
+        super(Baseball, self).__init__("Baseball", "White")
+
+
+class Hammer(Tools):
+    def __init__(self):
+        super(Hammer, self).__init__("Hammer", "Thick")
+
+
+class Screw(Tools):
+    def __init__(self):
+        super(Screw, self).__init__("Screw Driver", "Small")
+
+
+class Wrench(Tools):
+    def __init__(self):
+        super(Wrench, self).__init__("Wrench", "Small")
+
+
+class Utensil(Items):
+    def __init__(self, name, type_of):
+        super(Utensil, self).__init__(name)
+        self.type = type_of
+
+
+class Spoon(Utensil):
+    def __init__(self):
+        super(Spoon, self).__init__("Spoon", "Rusty")
+
+
+class Key(Utensil):
+    def __init__(self):
+        super(Key, self).__init__("Key", "Car Key")
+
+
+class CarParts(Items):
+    def __init__(self, name):
+        super(CarParts, self).__init__(name)
+
+
+class Engine(CarParts):
+    def __init__(self):
+        super(Engine, self).__init__("Engine")
+
+
+class Hull(CarParts):
+    def __init__(self):
+        super(Hull, self).__init__("Hull")
+
+
+class Wheel(CarParts):
+    def __init__(self):
+        super(Wheel, self).__init__("Wheel")
+
+
+class Vehicle(object):
+    def __init__(self, name, engine):
+        self.name = name
+        self.engine_type = engine
+
+
+class Car(Vehicle):
+    def __init__(self, name, engine_type, body_type):
+        super(Car, self).__init__(name, engine_type)
+        self.body_type = body_type
+        self.hull = False
+        self.steering_wheel = False
+        self.engine_status = False  # because the engine is off
+        self.fuel = 0
+
+    def start_engine(self):
+        self.engine_status = True
+        print("You turn the key and the car turns on.")
+
+    def move_forward(self):
+        self.fuel -= 1
+        print("You move forward")
+
+    def turn_left(self):
+        self.fuel -= 1
+        print("You turn left.")
+
+    def turn_right(self):
+        self.fuel -= 1
+        print("You turn right.")
+
+    def turn_off(self):
+        self.engine_status = False
+        print("You turn the engine off.")
+
+
+class Weapon(Items):
+    def __init__(self, name, damage):
+        super(Weapon, self).__init__(name, damage)
+        self.damage = damage
+
+
+class Character(object):
+    def __init__(self, name, health, weapon, armor):
+        self.name = name
+        self.health = health
+        self.weapon = weapon
+        self.armor = armor
+
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+        print("%s has %d health left" % (self.name, self.health))
+
+    def attack(self, target):
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
+        target.take_damage(self.weapon.damage)
+
+
 class Player(object):
     def __init__(self, starting_location):
         self.health = 100
@@ -24,12 +194,6 @@ class Player(object):
         :return:
         """
         self.current_location = new_location
-
-
-class Terrorist(object):
-    def __init__(self):
-        self.health = 10
-        self.damage = 10
 
 
 R1A = Room('Lower Mid', "R1B", None, None, None, "You are at a narrow path and all you can do is go forward.",
@@ -92,8 +256,18 @@ DEF = Room('Default box', "FGR", "TS", "BOOT", "AST", "You are next to large box
 NPT = Room('North of Pit', None, None, "PT", None, "You are in an enclosed area that looks very sneaky.", None, None)
 PILL = Room('Pillar', None, "BOOT", None, "BACK", "You are hidden behind a pillar you can go east or west.", None, None)
 
+# Items
+sword = Weapon("Sword", 15)
+sword2 = Weapon("Orc Sword", 5)
+
+
 # Player
 player = Player(R1A)
+
+# Character
+c1 = Character("Orc1", 100, sword, None)
+c2 = Character("Orc2", 100, sword2, None)
+c1.attack(c2)
 
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
