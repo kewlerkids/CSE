@@ -1,5 +1,8 @@
 class Room(object):
-    def __init__(self, name, north=None, east=None, south=None, west=None, description="", up=None, down=None):
+    def __init__(self, name, north=None, east=None, south=None, west=None, description="", up=None, down=None,
+                 items=None):
+        if items is None:
+            items = []
         self.name = name
         self.north = north
         self.south = south
@@ -8,6 +11,7 @@ class Room(object):
         self.description = description
         self.up = up
         self.down = down
+        self.items = items
 
 
 class Items(object):
@@ -158,7 +162,7 @@ class Car(Vehicle):
 
 class Weapon(Items):
     def __init__(self, name, damage):
-        super(Weapon, self).__init__(name, damage)
+        super(Weapon, self).__init__(name)
         self.damage = damage
 
 
@@ -196,11 +200,21 @@ class Player(object):
         self.current_location = new_location
 
 
+# Items
+sword = Weapon("Sword", 15)
+sword2 = Weapon("Orc Sword", 5)
+
+
+# ====================================================================================================================
+# Rooms
+# ====================================================================================================================
+
+
 R1A = Room('Lower Mid', "R1B", None, None, None, "You are at a narrow path and all you can do is go forward.",
-           None, None)
+           None, None, None)
 R1B = Room('Mid', "R1C", "R34", "R1A", "REST", "You are at a narrow path and you have directions every way.",
            None, None)
-REST = Room('Bench', None, "R1B", None, None, "This is just an old bench...", None, None)
+REST = Room('Bench', None, "R1B", None, None, "This is just an old bench...", None, None, [Key])
 R34 = Room('HayStack', None, "ALL", None, "R1B", "You are near a balcony and you can go west or east.", "RBIDY", None)
 ALL = Room('Alley', "STR", None, "R34", None, "There is a door in front of you.", None, None)
 STR = Room('Stairs', None, None, "ALL", None, "You ca go up some stairs.", "EAPT", None)
@@ -228,7 +242,8 @@ RBLD = Room('Boiler Room Door', None, "PAT", "BLR", "R1C",
 VROOM = Room('Hay Truck', None, None, None, None,
              "You are on a soft truck of hay you can jump onto a balcony or get down...", "BALL", "TS")
 TS = Room('Truck Side', "FGR", None, "PAT", "BOOT", "You are next to a wagon and a building.", "VROOM", None)
-PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks on the floor...", None, None)
+PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks on the floor...", None, None,
+           [Apple, Banana, BlackBerry])
 LARCH = Room('Lower Arch Side', "UARCH", "RCLA", "CUB", None,
              "You can go into a little corner south or continue.", None, None)
 CUB = Room('Cubby', "LARCH", None, None, None, "You are in a small corner with a little wooden box...", None, None)
@@ -236,7 +251,8 @@ UARCH = Room('Upper Arch Side', "LDR", "MCRH", "LARCH", None,
              "You see a door in front of you and a building to your east.", None, None)
 LDR = Room('Library', None, None, "UARCH", "KIT",
            "It smells like fresh paper and there are shelves of books and a small hall west.", None, None)
-KIT = Room('Kitchen', None, "LDR", None, None, "There is a kitchen here with pots pans and cabinets.", None, None)
+KIT = Room('Kitchen', None, "LDR", None, None, "There is a kitchen here with pots pans and cabinets.", None, None,
+           [Gas])
 MCRH = Room('Moto Near Arch', "MOT", "OFF", None, "UARCH",
             "You are near a small corner to your north and a building east.", None, None)
 MOT = Room('Moto', None, None, "MCRH", None, "You are in a small corner and there is a plain cardboard box.",
@@ -250,24 +266,21 @@ AST = Room('A site', "OFF", "DEF", "BACK", None, "You can go to the back or east
 PT = Room('Pit', "NPT", None, None, "FGR", "You are near an enclosed area and a building.", None, None)
 BOOT = Room('Boost', "DEF", None, None, "PILL",
             "You are on a wooden box that seems very fragile and are under a patio.", None, None)
-BACK = Room('Back A site', "AST", "PILL", None, None, "You are in a corner at the back of the site.", None, None)
+BACK = Room('Back A site', "AST", "PILL", None, None, "You are in a corner at the back of the site.", None, None,
+            [Paint])
 DEF = Room('Default box', "FGR", "TS", "BOOT", "AST", "You are next to large boxes you can go multiple ways.",
            None, None)
 NPT = Room('North of Pit', None, None, "PT", None, "You are in an enclosed area that looks very sneaky.", None, None)
 PILL = Room('Pillar', None, "BOOT", None, "BACK", "You are hidden behind a pillar you can go east or west.", None, None)
-
-# Items
-sword = Weapon("Sword", 15)
-sword2 = Weapon("Orc Sword", 5)
 
 
 # Player
 player = Player(R1A)
 
 # Character
-c1 = Character("Orc1", 100, sword, None)
-c2 = Character("Orc2", 100, sword2, None)
-c1.attack(c2)
+# c1 = Character("Orc1", 100, sword, None)
+# c2 = Character("Orc2", 100, sword2, None)
+# c1.attack(c2)
 
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
