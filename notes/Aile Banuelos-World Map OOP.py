@@ -1,3 +1,8 @@
+# ====================================================================================================================
+# Classes
+# ====================================================================================================================
+
+
 class Room(object):
     def __init__(self, name, north=None, east=None, south=None, west=None, description="", up=None, down=None,
                  items=None):
@@ -26,35 +31,10 @@ class Fruit(Items):
         self.type = type_of
 
 
-class Apple(Fruit):
-    def __init__(self):
-        super(Apple, self).__init__("Apple", "Red", "Special Seedless")
-
-
-class Banana(Fruit):
-    def __init__(self):
-        super(Banana, self).__init__("Banana", "Yellow", "Ripe")
-
-
-class BlackBerry(Fruit):
-    def __init__(self):
-        super(BlackBerry, self).__init__("Black Berry", "Black", "Seedy")
-
-
 class Liquids(Items):
     def __init__(self, name):
         super(Liquids, self).__init__(name)
         self.amount = 20
-
-
-class Gas(Liquids):
-    def __init__(self):
-        super(Gas, self).__init__("Gasoline")
-
-
-class Paint(Liquids):
-    def __init__(self):
-        super(Paint, self).__init__("Bucket of paint")
 
 
 class Tools(Items):
@@ -63,65 +43,15 @@ class Tools(Items):
         self.type = type_of
 
 
-class BaseballBat(Tools):
-    def __init__(self):
-        super(BaseballBat, self).__init__("Baseball Bat", "Wooden")
-
-
-class Baseball(Tools):
-    def __init__(self):
-        super(Baseball, self).__init__("Baseball", "White")
-
-
-class Hammer(Tools):
-    def __init__(self):
-        super(Hammer, self).__init__("Hammer", "Thick")
-
-
-class Screw(Tools):
-    def __init__(self):
-        super(Screw, self).__init__("Screw Driver", "Small")
-
-
-class Wrench(Tools):
-    def __init__(self):
-        super(Wrench, self).__init__("Wrench", "Small")
-
-
 class Utensil(Items):
     def __init__(self, name, type_of):
         super(Utensil, self).__init__(name)
         self.type = type_of
 
 
-class Spoon(Utensil):
-    def __init__(self):
-        super(Spoon, self).__init__("Spoon", "Rusty")
-
-
-class Key(Utensil):
-    def __init__(self):
-        super(Key, self).__init__("Key", "Car Key")
-
-
 class CarParts(Items):
     def __init__(self, name):
         super(CarParts, self).__init__(name)
-
-
-class Engine(CarParts):
-    def __init__(self):
-        super(Engine, self).__init__("Engine")
-
-
-class Hull(CarParts):
-    def __init__(self):
-        super(Hull, self).__init__("Hull")
-
-
-class Wheel(CarParts):
-    def __init__(self):
-        super(Wheel, self).__init__("Wheel")
 
 
 class Vehicle(object):
@@ -166,6 +96,90 @@ class Weapon(Items):
         self.damage = damage
 
 
+# ====================================================================================================================
+# Items
+# ====================================================================================================================
+
+
+class Apple(Fruit):
+    def __init__(self):
+        super(Apple, self).__init__("Apple", "Red", "Special Seedless")
+
+
+class Banana(Fruit):
+    def __init__(self):
+        super(Banana, self).__init__("Banana", "Yellow", "Ripe")
+
+
+class BlackBerry(Fruit):
+    def __init__(self):
+        super(BlackBerry, self).__init__("Black Berry", "Black", "Seedy")
+
+
+class Gas(Liquids):
+    def __init__(self):
+        super(Gas, self).__init__("Gasoline")
+
+
+class Paint(Liquids):
+    def __init__(self):
+        super(Paint, self).__init__("Bucket of paint")
+
+
+class BaseballBat(Tools):
+    def __init__(self):
+        super(BaseballBat, self).__init__("Baseball Bat", "Wooden")
+
+
+class Baseball(Tools):
+    def __init__(self):
+        super(Baseball, self).__init__("Baseball", "White")
+
+
+class Hammer(Tools):
+    def __init__(self):
+        super(Hammer, self).__init__("Hammer", "Thick")
+
+
+class Screw(Tools):
+    def __init__(self):
+        super(Screw, self).__init__("Screw Driver", "Small")
+
+
+class Wrench(Tools):
+    def __init__(self):
+        super(Wrench, self).__init__("Wrench", "Small")
+
+
+class Spoon(Utensil):
+    def __init__(self):
+        super(Spoon, self).__init__("Spoon", "Rusty")
+
+
+class Key(Utensil):
+    def __init__(self):
+        super(Key, self).__init__("Key", "Car Key")
+
+
+class Engine(CarParts):
+    def __init__(self):
+        super(Engine, self).__init__("Engine")
+
+
+class Hull(CarParts):
+    def __init__(self):
+        super(Hull, self).__init__("Hull")
+
+
+class Wheel(CarParts):
+    def __init__(self):
+        super(Wheel, self).__init__("Wheel")
+
+# ====================================================================================================================
+# Characters
+# ====================================================================================================================
+
+
 class Character(object):
     def __init__(self, name, health, weapon, armor):
         self.name = name
@@ -183,27 +197,10 @@ class Character(object):
         print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
         target.take_damage(self.weapon.damage)
 
-
-class Player(object):
-    def __init__(self, starting_location):
-        self.health = 100
-        self.current_location = starting_location
-        self.inventory = []
-        self.damage = 10
-
-    def move(self, new_location):
-        """ This method moves a character to a new location
-
-        :param new_location: The variable containing a room object
-        :return:
-        """
-        self.current_location = new_location
-
-
-# Items
-sword = Weapon("Sword", 15)
-sword2 = Weapon("Orc Sword", 5)
-
+# Character
+# c1 = Character("Orc1", 100, sword, None)
+# c2 = Character("Orc2", 100, sword2, None)
+# c1.attack(c2)
 
 # ====================================================================================================================
 # Rooms
@@ -274,19 +271,36 @@ NPT = Room('North of Pit', None, None, "PT", None, "You are in an enclosed area 
 PILL = Room('Pillar', None, "BOOT", None, "BACK", "You are hidden behind a pillar you can go east or west.", None, None)
 
 
+# ====================================================================================================================
 # Player
+# ====================================================================================================================
+
+class Player(object):
+    def __init__(self, starting_location):
+        self.health = 100
+        self.current_location = starting_location
+        self.inventory = []
+        self.damage = 10
+
+    def move(self, new_location):
+        """ This method moves a character to a new location
+
+        :param new_location: The variable containing a room object
+        :return:
+        """
+        self.current_location = new_location
+
+
 player = Player(R1A)
 
-# Character
-# c1 = Character("Orc1", 100, sword, None)
-# c2 = Character("Orc2", 100, sword2, None)
-# c1.attack(c2)
+
+# ====================================================================================================================
+# Controller
+# ====================================================================================================================
 
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 
-
-# Controller
 while playing:
     print(player.current_location.name)
     print(player.current_location.description)
@@ -305,16 +319,3 @@ while playing:
             print("**I can't go that way.**")
     else:
         print("Command Not Recognized")
-
-
-# Option 1
-# Add dependent rooms after
-# R19A = Room("R19A")
-# parking_lot = Room('The parking Lot', None, R19A)
-
-# R19A.north = parking_lot
-
-# Option 2
-# Put them in quotes
-# R19A = Room("R19A", "parking_lot")
-# parking_lot = Room('The parking Lot', None, R19A)
