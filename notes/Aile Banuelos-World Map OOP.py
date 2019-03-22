@@ -207,9 +207,10 @@ class Character(object):
 # ====================================================================================================================
 
 
-R1A = Room('Lower Mid', "R1B", None, None, None, "You are at a narrow path and all you can do is go forward.",
+R1A = Room('Lower Mid', "R1B", None, None, None,
+           "You are at a narrow path and all you can do is go forward, but behind you is a broken down car...",
            None, None, None)
-R1B = Room('Mid', "R1C", "R34", "R1A", "REST", "You are at a narrow path and you have directions every way.",
+R1B = Room('Mid', "R1C", "R34", "R1A", "REST", "You are at a narrow path still and you have directions every way.",
            None, None)
 REST = Room('Bench', None, "R1B", None, None, "This is just an old bench...", None, None, [Key])
 R34 = Room('HayStack', None, "ALL", None, "R1B", "You are near a balcony and you can go west or east.", "RBIDY", None)
@@ -242,9 +243,10 @@ RBLD = Room('Boiler Room Door', None, "PAT", "BLR", "R1C",
             "You are next to a nice wooden door to your back but there is also a path right.", None, None)
 VROOM = Room('Hay Truck', None, None, None, None,
              "You are on a soft truck of hay you can jump onto a balcony or get down...", "BALL", "TS")
-TS = Room('Truck Side', "FGR", None, "PAT", "BOOT", "You are next to a wagon and a building.", "VROOM", None, [Wheel])
-PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks on the floor...", None, None,
-           [Apple, Banana, BlackBerry])
+TS = Room('Truck Side', "FGR", None, "PAT", "BOOT",
+          "You are next to a wagon and a building, you can try jumping on the wagon.", "VROOM", None, [Wheel])
+PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks of fruit on the floor...",
+           None, None, [Apple, Banana, BlackBerry])
 LARCH = Room('Lower Arch Side', "UARCH", "RCLA", "CUB", None,
              "You can go into a little corner south or continue.", None, None)
 CUB = Room('Cubby', "LARCH", None, None, None, "You are in a small corner with a little wooden box that's open...",
@@ -307,6 +309,7 @@ player = Player(R1A)
 
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
+life = ['take', 'repair', 'eat']
 
 while playing:
     print(player.current_location.name)
@@ -326,3 +329,11 @@ while playing:
             print("**I can't go that way.**")
     else:
         print("Command Not Recognized")
+
+    if command.lower()in life:
+        try:
+            room_name = getattr(player.current_location, command)
+            room_object = globals()[room_name]
+
+        except KeyError:
+            print("**I can't go that way**")
