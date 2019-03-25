@@ -245,7 +245,7 @@ VROOM = Room('Hay Truck', None, None, None, None,
              "You are on a soft truck of hay you can jump onto a balcony or get down...", "BALL", "TS")
 TS = Room('Truck Side', "FGR", None, "PAT", "BOOT",
           "You are next to a wagon and a building, you can try jumping on the wagon.", "VROOM", None, [Wheel])
-PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has sacks of fruit on the floor...",
+PAT = Room('Patio', "TS", None, None, "RBLD", "You are underneath a patio that has fruit on the floor...",
            None, None, [Apple, Banana, BlackBerry])
 LARCH = Room('Lower Arch Side', "UARCH", "RCLA", "CUB", None,
              "You can go into a little corner south or continue.", None, None)
@@ -330,10 +330,14 @@ while playing:
     else:
         print("Command Not Recognized")
 
-    if command.lower()in life:
-        try:
-            room_name = getattr(player.current_location, command)
-            room_object = globals()[room_name]
+    if "take " in command:
+        item_name = command[5:]
 
-        except KeyError:
-            print("**I can't go that way**")
+        found_item = None
+        for item in player.current_location.items:
+            if item.name == item_name:
+                found_item = item
+
+            player.inventory.append(item_object)
+
+        
