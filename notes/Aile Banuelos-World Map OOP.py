@@ -209,8 +209,8 @@ class Character(object):
 
 R1A = Room('Lower Mid', "R1B", None, None, None,
            "You are at a narrow path and all you can do is go forward, but behind you is a broken down car..."
-           "If you need to see your inventory just put, inventory. To see what supplies you need put, list",
-           None, None, [Car("Vroom vroom", Gas)])
+           "Type in help for help",
+           None, None, [Car("Vroom vroom", "gas")])
 R1B = Room('Mid', "R1C", "R34", "R1A", "REST", "You are at a narrow path still and you have directions every way.",
            None, None)
 REST = Room('Bench', None, "R1B", None, None, "This is just an old bench...and a Key on the floor", None, None, [Key()])
@@ -310,10 +310,9 @@ player = Player(R1A)
 # ====================================================================================================================
 # Controller
 # ====================================================================================================================
-
+items_needed = [Wheel, Hull, Engine, Key, Wrench, Hammer, Screw, Paint, Gas]
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
-life = ['take', 'repair', 'eat']
 
 while playing:
     CarRepair = False
@@ -347,14 +346,31 @@ while playing:
 
         player.inventory.append(found_item)
         player.current_location.items.remove(found_item)
+        print("")
         print("You found a(n) %s" % found_item.name)
         print(player.inventory)
 
+        if items_needed in player.inventory:
+            print("")
+            print("You have successfully repaired the car!!")
+            print("Time to go home and live life!")
+            print("")
+            playing = False
+
     if "inventory" in command:
+        print("")
         print(player.inventory)
+        print("")
 
     if "list" in command:
         print('''
         You need: A Wheel, A Hull, A Engine,and A Key.
         You need: A Wrench, A Hammer, and A Screw.
+        You need: Paint and Gas. Paint to look good ;)
         ''')
+
+    if "help" in command:
+        print("")
+        print("To see your inventory just put, inventory. To see what supplies you need put, list")
+        print("In order to win you need to get the supplies so you can leave in the broken car")
+        print("")
