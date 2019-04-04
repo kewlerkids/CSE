@@ -43,6 +43,11 @@ class Tools(Items):
         self.type = type_of
 
 
+class Fun(Items):
+    def __init__(self, name):
+        super(Fun, self).__init__(name)
+
+
 class Utensil(Items):
     def __init__(self, name, type_of):
         super(Utensil, self).__init__(name)
@@ -175,6 +180,16 @@ class Wheel(CarParts):
     def __init__(self):
         super(Wheel, self).__init__("Wheel")
 
+
+class Diamonds(Fun):
+    def __init__(self):
+        super(Diamonds, self).__init__("Diamonds")
+
+
+class Books(Fun):
+    def __init__(self):
+        super(Books, self).__init__("Books")
+
 # ====================================================================================================================
 # Characters
 # ====================================================================================================================
@@ -233,9 +248,9 @@ HALL = Room('Long Hall', "DRO", None, "EAPT", None,
             "You are in the middle of a narrow and dark hall, but there is a Baseball on the floor.",
             None, None, [Baseball()])
 DRO = Room('Door to second balcony', "BALL", None, "HALL", None,
-           "You are next to a white wooden door and the narrow hall.", None, None)
+           "You are next to a white wooden door North and the narrow hall South.", None, None)
 BALL = Room('Second Balcony', None, None, "DRO", None,
-            "You are at a very high place but you see a building below.", None, "VROOM")
+            "You are at a very high place but you see a building if you go Down.", None, "VROOM")
 BLR = Room('Boiler Room', "RBLD", None, None, None,
            "There's a boiler behind me and a door in front, North, plus some stairs Up, and a Wrench.", "WAPT", None,
            [Wrench()])
@@ -245,21 +260,22 @@ RCLA = Room('Close', None, "R1C", None, "LARCH", "It's a small corner you can go
 RBLD = Room('Boiler Room Door', None, "PAT", "BLR", "R1C",
             "You are next to a nice wooden door to your South but there is also a path East.", None, None)
 VROOM = Room('Hay Truck', None, None, None, None,
-             "You are on a soft truck of hay you can jump onto a balcony or get down...", "BALL", "TS")
+             "You are on a soft truck of hay you can jump Up onto a balcony or get Down...", "BALL", "TS")
 TS = Room('Truck Side', "FGR", None, "PAT", "BOOT",
-          "You are next to a wagon and a building, you can try jumping on the wagon, or take the Wheel.",
+          "You are next to a wagon and a building, you can try jumping Up on the wagon, or take the Wheel.",
           "VROOM", None, [Wheel()])
 PAT = Room('Patio', "TS", None, None, "RBLD",
            "You are underneath a patio that has an Apple, Banana, and a BlackBerry on the floor...",
            None, None, [Apple(), Banana(), BlackBerry()])
 LARCH = Room('Lower Arch Side', "UARCH", "RCLA", "CUB", None,
              "You can go into a little corner south or continue.", None, None)
-CUB = Room('Cubby', "LARCH", None, None, None, "You are in a small corner with a little wooden box that's open...",
-           None, None)
+CUB = Room('Cubby', "LARCH", None, None, None, "You are in a small corner with a huge wooden box that's open..."
+                                               "You look at it...there is also an Engine inside this box. Leave North.",
+           None, None, [Engine()])
 UARCH = Room('Upper Arch Side', "LDR", "MCRH", "LARCH", None,
              "You see a door in front of you and a building to your east.", None, None)
 LDR = Room('Library', None, None, "UARCH", "KIT",
-           "It smells like fresh paper and there are shelves of books and a small hall west.", None, None)
+           "It smells like fresh paper and there are shelves of Books and a small hall West.", None, None, [Books()])
 KIT = Room('Kitchen', None, "LDR", None, None, "There is a kitchen here with pots pans, empty cabinets, and a Gas can.",
            None, None, [Gas()])
 MCRH = Room('Moto Near Arch', "MOT", "OFF", None, "UARCH",
@@ -270,7 +286,8 @@ OFF = Room('Off A Site', None, "FGR", "AST", "MCRH", "There is a wall North but 
 FGR = Room('Front of Graveyard', "GRR", "PT", "TS", "OFF",
            "There is a graveyard north a slope east and a building west.", None, None)
 GRR = Room('Graveyard', None, None, "FGR", None,
-           "There are graves around you and one seems to be dug up already...", None, None)
+           "There are graves around you and one seems to be dug up already, but... inside the grave are Diamonds!",
+           None, None, [Diamonds()])
 AST = Room('A site', "OFF", "DEF", "BACK", None, "You can go to the back or east. You are near a patio.", None, None)
 PT = Room('Pit', "NPT", None, None, "FGR", "You are near an enclosed area and a building.", None, None)
 BOOT = Room('Boost', "DEF", None, None, "PILL",
@@ -305,9 +322,9 @@ class Player(object):
         """
         self.current_location = new_location
 
-    def print_inventory(self):
-        for item in self.inventory:
-            print(item.name)
+# def print_inventory(self):
+# for item in self.inventory:
+# print(item.name)
 
 
 player = Player(R1A)
@@ -316,7 +333,7 @@ player = Player(R1A)
 # ====================================================================================================================
 # Controller
 # ====================================================================================================================
-items_needed = [Wheel, Hull, Engine, Key, Wrench, Hammer, Screw, Paint, Gas]
+items_needed = ['Wheel', 'Hull', 'Engine', 'Key', 'Wrench', 'Hammer', 'Screw', 'Paint', 'Gas']
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 
@@ -350,17 +367,25 @@ while playing:
             if item.name == item_name:
                 found_item = item
         if found_item is not None:
-            player.inventory.append(found_item)
+            player.inventory.append(found_item.name)
             player.current_location.items.remove(found_item)
             print("")
             print("You found a(n) %s" % found_item.name)
-            player.print_inventory()
+            # player.print_inventory()
             print("")
 
     if items_needed in player.inventory:
         print("")
         print("You have successfully repaired the car!!")
         print("Time to go home and live life!")
+        print("")
+        playing = False
+
+    if 'Diamonds' in player.inventory:
+        print("!!!!")
+        print("You fell into the whole while taking these Diamonds and you here someone...")
+        print("They start throwing dirt on you while you're in the whole")
+        print("YOU'VE BEEN BURIED ALIVE!!")
         print("")
         playing = False
 
