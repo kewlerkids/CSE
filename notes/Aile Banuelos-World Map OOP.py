@@ -345,6 +345,7 @@ class Player(object):
 # for item in self.inventory:
 # print(item.name)
 
+inven = []
 
 player = Player(R1A)
 
@@ -398,6 +399,7 @@ while playing:
             print("You found a(n) %s" % found_item.name)
             # player.print_inventory()
             print("")
+            inven.append(found_item.name)
 
     if player.check_win():
         print("")
@@ -406,7 +408,7 @@ while playing:
         print("")
         playing = False
 
-    if 'Diamonds' in player.inventory:
+    if 'Diamonds' in inven:
         print("!!!!")
         print("You fell into the whole while taking these Diamonds and you here someone...")
         print("They start throwing dirt on you while you're in the whole")
