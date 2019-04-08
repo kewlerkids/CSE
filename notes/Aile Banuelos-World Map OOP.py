@@ -253,7 +253,7 @@ REN = Room('East of Bedroom', None, None, None, "RWN",
            None, None)
 WAPT = Room('West Apartments', None, "EAPT", "RWN", None,
             "There are so stairs going Down and a hallway East plus a door behind you South.", None, "BLR")
-EAPT = Room('East Apartments', "HALL", None, None, "WAPT", "You are next to a long hall North and South, stairs Down.",
+EAPT = Room('East Apartments', "HALL", None, None, "WAPT", "You are next to a long hall North and West, stairs Down.",
             None, "STR")
 HALL = Room('Long Hall', "DRO", None, "EAPT", None,
             "You are in the middle of a narrow and dark hall, but there is a Baseball on the floor.",
@@ -284,13 +284,13 @@ CUB = Room('Cubby', "LARCH", None, None, None, "You are in a small corner with a
                                                "You look at it...there is also an Engine inside this box. Leave North.",
            None, None, [engine1])
 UARCH = Room('Upper Arch Side', "LDR", "MCRH", "LARCH", None,
-             "You see a door in front of you and a building to your east.", None, None)
+             "You see a door in front of you and a building to your East.", None, None)
 LDR = Room('Library', None, None, "UARCH", "KIT",
            "It smells like fresh paper and there are shelves of Books and a small hall West.", None, None, [Books()])
 KIT = Room('Kitchen', None, "LDR", None, None, "There is a kitchen here with pots pans, empty cabinets, and a Gas can.",
            None, None, [gas1])
 MCRH = Room('Moto Near Arch', "MOT", "OFF", None, "UARCH",
-            "You are near a small corner to your north and a building east.", None, None)
+            "You are near a small corner to your North and a building East.", None, None)
 MOT = Room('Moto', None, None, "MCRH", None,
            "You are in a small corner and there is a plain cardboard box with a Hammer.", None, None, [hammer1])
 OFF = Room('Off A Site', None, "FGR", "AST", "MCRH", "There is a wall North but directions every way.", None, None)
@@ -299,8 +299,8 @@ FGR = Room('Front of Graveyard', "GRR", "PT", "TS", "OFF",
 GRR = Room('Graveyard', None, None, "FGR", None,
            "There are graves around you and one seems to be dug up already, but... inside the grave are Diamonds!",
            None, None, [Diamonds()])
-AST = Room('A site', "OFF", "DEF", "BACK", None, "You can go to the back or east. You are near a patio.", None, None)
-PT = Room('Pit', "NPT", None, None, "FGR", "You are near an enclosed area and a building.", None, None)
+AST = Room('A site', "OFF", "DEF", "BACK", None, "You can go South or East. You are near a patio.", None, None)
+PT = Room('Pit', "NPT", None, None, "FGR", "You are near an enclosed area and a building South.", None, None)
 BOOT = Room('Boost', "DEF", None, None, "PILL",
             "You are on a wooden box that seems very fragile and are under a patio.", None, None)
 BACK = Room('Back A site', "AST", "PILL", None, None,
@@ -333,6 +333,14 @@ class Player(object):
         """
         self.current_location = new_location
 
+    def check_win(self):
+        items_needed = [wheel1, hull1, engine1, key1, wrench1, hammer1, screw1, paint1, gas1]
+        for items in items_needed:
+            if items not in self.inventory:
+                return False
+
+        return True
+
 # def print_inventory(self):
 # for item in self.inventory:
 # print(item.name)
@@ -344,18 +352,21 @@ player = Player(R1A)
 # ====================================================================================================================
 # Controller
 # ====================================================================================================================
-items_needed = [wheel1, hull1, engine1, key1, wrench1, hammer1, screw1, paint1, gas1]
 playing = True
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
+short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
 while playing:
     CarRepair = False
     print(player.current_location.name)
     print(player.current_location.description)
 
-    print(items_needed)
-    print(player.inventory)
     command = input(">_")
+
+    if command in short_directions:
+        pos = short_directions.index(command.lower())
+        command = directions[pos]
+
     if command.lower() in ['q', 'quit', 'exit']:
         playing = False
     elif command.lower()in directions:
@@ -388,7 +399,7 @@ while playing:
             # player.print_inventory()
             print("")
 
-    if items_needed in player.inventory:
+    if player.check_win():
         print("")
         print("You have successfully repaired the car!!")
         print("Time to go home and live life!")
