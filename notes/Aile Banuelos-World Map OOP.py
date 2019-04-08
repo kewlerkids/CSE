@@ -418,8 +418,8 @@ while playing:
 
     if "inventory" in command:
         print("")
-        print(player.inventory[:6])
-        print(player.inventory[6:])
+        print(inven[:6])
+        print(inven[6:])
         print("")
 
     if "list" in command:
