@@ -345,7 +345,9 @@ class Player(object):
 # for item in self.inventory:
 # print(item.name)
 
+
 inven = []
+
 
 player = Player(R1A)
 
