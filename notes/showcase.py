@@ -235,13 +235,12 @@ screw1 = Screw()
 
 R1A = Room('Lower Mid', "R1B", None, None, None,
            "You are at a narrow path and all you can do is go North, but behind you is a broken down car..."
-           "Type in help for help...",
+           "Type in help for help",
            None, None, [Car("Vroom vroom", "gas")])
 R1B = Room('Mid', "R1C", "R34", "R1A", "REST", "You are at a narrow path still and you have directions every way.",
            None, None)
 REST = Room('Bench', None, "R1B", None, None, "This is just an old bench...and a Key on the floor", None, None, [key1])
-R34 = Room('HayStack', None, "ALL", None, "R1B", "You are near a balcony Up and you can go West or East.", "RBIDY",
-           None)
+R34 = Room('HayStack', None, "ALL", None, "R1B", "You are near a balcony and you can go West or East.", "RBIDY", None)
 ALL = Room('Alley', "STR", None, "R34", None, "There is a door North of you and a BaseballBat on the floor.",
            None, None, [BaseballBat()])
 STR = Room('Stairs', None, None, "ALL", None, "You can go Up some stairs and on the side there is a cars Hull.",
@@ -413,8 +412,8 @@ while playing:
 
     if 'Diamonds' in inven:
         print("!!!!")
-        print("You fell into the hole while taking these Diamonds and you hear someone...")
-        print("They start throwing dirt on you while you're in the hole")
+        print("You fell into the whole while taking these Diamonds and you here someone...")
+        print("They start throwing dirt on you while you're in the whole")
         print("YOU'VE BEEN BURIED ALIVE!!")
         print("")
         playing = False
@@ -436,5 +435,4 @@ while playing:
         print("")
         print("To see your inventory just put, inventory. To see what supplies you need put, list")
         print("In order to win you need to get the supplies so you can leave in the broken car")
-        print("To take items just type, take [item]")
         print("")
