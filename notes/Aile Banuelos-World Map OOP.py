@@ -422,6 +422,7 @@ while playing:
     if "inventory" in command:
         print("")
         print(inven[:6])
+
         print(inven[6:])
         print("")
 
