@@ -1,23 +1,35 @@
-def reverse(num: str):
-    num = "4712839550684070"[::-1]
-    print(num)
+import csv
 
 
-def checking_validation(card_num: str):
-    card_num = len == 16
-    summary = 0
-    digits_in_num = len(card_num)
-    change_num = card_num[1, 3, 5, 7, 9, 11, 13, 15]
-    print(card_num)
-    for count in range(0, digits_in_num):
-        digit = int(card_num[count])
+def validate(num: str):
+    if len(num) == 16:
+        list_form = list(num)
+        list_form.pop(15)
+        print(list_form)
+        reversed_form = reverse(list_form)
 
-        if change_num:
-            digit = digit * 2
-        if digit > 9:
-            digit = digit - 9
+        for index in range(len(reversed_form)):
+            reversed_form[index] = int(reversed_form[index])
 
-        summary = summary + digit
-    return (summary % 10) == 0
-    print(card_num)
+            if index in reversed_form:
+                index = [0, 2, 4, 6, 8, 10, 12, 14]
+        print(reversed_form)
+    return False
 
+
+def reverse(num: list):
+    return num[::-1]
+
+
+print(validate("4556737586899855"))
+
+# with open("Book1.csv", 'r') as old_csv:
+#     with open("MyNewFile.csv", 'w', newline='') as new_csv:
+#         reader = csv.reader(old_csv)
+#         writer = csv.writer(new_csv)
+#         print("Processing...")
+#         for row in reader:
+#             old_number = row[0]  # string
+#             if validate(old_number):
+#                 writer.writerow(row)
+#         print("OK")

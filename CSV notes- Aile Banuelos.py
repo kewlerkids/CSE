@@ -33,6 +33,12 @@ def reverse(num: str):
     print(num)
 
 
+def valid1(num: str):
+    reversed_version = reverse(num)
+    for i in revered_version:
+        ...
+
+
 reverse("4712839550684070")
 
 # with open("Book1.csv", 'r') as old_csv:
