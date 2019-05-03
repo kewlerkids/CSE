@@ -11,10 +11,22 @@ def validate(num: str):
         for index in range(len(reversed_form)):
             reversed_form[index] = int(reversed_form[index])
 
-            if index in reversed_form:
-                index = [0, 2, 4, 6, 8, 10, 12, 14]
+            if index % 2 == 0:
+                reversed_form[index] *= 2
+
+                if reversed_form[index] >= 9:
+                    reversed_form[index] -= 9
+
         print(reversed_form)
-    return False
+        print(sum(reversed_form))
+        total = sum(reversed_form) % 10
+        print(total)
+
+        if total == list_form(15):
+            return True
+
+        else:
+            return False
 
 
 def reverse(num: list):
