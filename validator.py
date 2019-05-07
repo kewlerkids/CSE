@@ -2,6 +2,7 @@ import csv
 
 
 def validate(num: str):
+    print("")
     if len(num) == 16:
         list_form = list(num)
         last_num = list_form.pop(15)
@@ -24,6 +25,9 @@ def validate(num: str):
 
         if total == last_num:
             print("Valid")
+
+        else:
+            print("Invalid")
 
 
 def reverse(num: list):
