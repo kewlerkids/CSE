@@ -1,3 +1,6 @@
+import colorama
+from termcolor import colored
+
 # ====================================================================================================================
 # Classes
 # ====================================================================================================================
@@ -232,7 +235,6 @@ screw1 = Screw()
 # Rooms
 # ====================================================================================================================
 
-
 R1A = Room('Lower Mid', "R1B", None, None, None,
            "You are at a narrow path and all you can do is go North, but behind you is a broken down car..."
            "Type in help for help...",
@@ -362,8 +364,8 @@ short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
 while playing:
     CarRepair = False
-    print(player.current_location.name)
-    print(player.current_location.description)
+    print(colored(player.current_location.name, 'blue'))
+    print(colored(player.current_location.description, 'magenta'))
 
     command = input(">_")
 
@@ -380,11 +382,11 @@ while playing:
 
             player.move(room_object)
         except KeyError:
-            print("**I can't go that way.**")
+            print(colored("**I can't go that way.**", 'red'))
         except AttributeError:
-            print("**I can't go that way.**")
+            print(colored("**I can't go that way.**", 'red'))
     else:
-        print("Command Not Recognized")
+        print(colored("Command Not Recognized", 'red'))
 
     if "take " in command:
         item_name = command[5:]
@@ -427,15 +429,23 @@ while playing:
         print("")
 
     if "list" in command:
-        print('''
+        print(colored('''
         You need: A Wheel, A Hull, A Engine,and A Key.
         You need: A Wrench, A Hammer, and A Screw.
         You need: Paint and Gas. Paint to look good ;)
-        ''')
+        ''', 'cyan'))
 
     if "help" in command:
         print("")
-        print("To see your inventory just put, inventory. To see what supplies you need put, list")
-        print("In order to win you need to get the supplies so you can leave in the broken car")
-        print("To take items just type, take [item]")
+        print(colored("To see your inventory just put, inventory. To see what supplies you need put, list", 'cyan'))
+        print(colored("In order to win you need to get the supplies so you can leave in the broken car", 'cyan'))
+        print(colored("To take items just type, take [item]", 'cyan'))
         print("")
+
+    if "Books" in inven:
+        print(colored("!!!!!!!", 'red'))
+        print(colored("WOW!", 'red'))
+        print(colored("You are in a really dark place but it starts getting hot...", 'red'))
+        print(colored("You see fire", 'red'))
+        print(colored("YOU'VE BEEN SENT TO HELL!", 'red'))
+        playing = False
